@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <script src="javascripts/lib/sockjs-0.3.min.js"></script>
+    <script src="javascripts/lib/angular.min.js"></script>
+    <script src="javascripts/chat.js"></script>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  </head>
+  <body>
+    <div ng-controller="ChatCtrl">
+        <ul>
+            <li ng-repeat="message in messages track by $index">
+               {{message}}
+            </li>
+        </ul>
+
+        <form class="form-horizontal">
+          <fieldset>
+
+          <!-- Form Name -->
+          <legend>Custom Chat</legend>
+          <p ng-model="userCount">{{userCount}} users since you joined.</p>
+          <!-- User Name-->
+          <label class="control-label" for="textinput">User Name </label>
+          <input id="userName" name="textinput" type="text" placeholder="User Name" class="input-xlarge" ng-model="userName">
+          <br />
+
+          <!-- Text input-->
+          <label class="control-label" for="textinput">Text Input </label>
+          <!-- Message -->
+          <textarea class="form-control" id="textarea" name="textarea" placeholder="Input Text here" ng-model="messageText"></textarea><br />
+          <!-- Button -->
+          <label class="control-label" for="singlebutton"></label>
+          <button id="singlebutton" name="singlebutton" class="btn btn-info" ng-click="sendMessage()">Message</button>
+          <button id="singlebutton1" name="singlebutton1" class="btn btn-info" ng-click="clearMessages()">Clear Messages</button>
+          </fieldset>
+        </form>
+    </div>
+
+  </body>
+</html>
